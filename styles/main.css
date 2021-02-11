@@ -1,0 +1,82 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.known-associates-container{
+    background-color: lightgreen;
+    color: darkgreen;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+nav {
+    background-color: lightgreen;
+    height: 10vh;
+    padding-top: 0.1em;
+
+}
+nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    align-items: center;
+
+}
+
+nav ul a {
+    color: forestgreen;
+    text-decoration: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2em;
+}
+
+nav ul a:hover {
+    color: darkgreen;
+}
+
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.criminal-card{
+    border: 1px solid gray;
+    margin: 2em;
+    padding: 1em;
+    background-color: lightgreen;
+    color: darkgreen;
+}
+
+.officer-card {
+    border: 1px solid gray;
+    margin: 2em;
+    padding: 1em;
+    background-color: lightgreen;
+    color: darkblue;
+}
+
+.note-card {
+    border: 1px solid gray;
+    padding: 1em;
+    margin: 1em;
+    background-color: lightblue;
+    color: darkblue;
+}
+
+.facility-card {
+    border: 1px solid gray;
+    margin: 2em;
+    padding: 1em;
+    background-color: lightslategrey;
+    color: black;
+}
+.witness-card {
+    border: 1px solid gray;
+    padding: 1em;
+    margin: 1em;
+    background-color: lightblue;
+    color: purple;
+}
