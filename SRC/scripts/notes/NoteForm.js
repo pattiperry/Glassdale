@@ -1,6 +1,7 @@
 import {saveNote} from "./NoteDataProvider.js"
 import {getCriminals, useCriminals} from "../criminals/CriminalProvider.js"
 import {criminalCard} from "../criminals/Criminal.js"
+import {NoteList} from "./NoteList.js"
 
 //selecting the container in the HTML where notes will be entered
 const contentTarget = document.querySelector(".noteFormContainer")
@@ -22,6 +23,8 @@ export const NoteForm = () => {
         }).join("")}
         </select>
         <button type="button" id="saveNote">Save Note</button>
+        
+
         `
     })
     

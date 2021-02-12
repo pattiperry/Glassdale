@@ -48,6 +48,7 @@ nav ul a:hover {
     padding: 1em;
     background-color: lightgreen;
     color: darkgreen;
+    width: 25vw;
 }
 
 .officer-card {
@@ -64,6 +65,7 @@ nav ul a:hover {
     margin: 1em;
     background-color: lightblue;
     color: darkblue;
+    
 }
 
 .facility-card {
