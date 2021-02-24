@@ -1,14 +1,22 @@
 import {getCriminals, useCriminals} from "./CriminalProvider.js"
 import {criminalCard} from "./Criminal.js"
+import {getFacilities, useFacilities } from "../facilities/FacilityProvider.js";
+import {getCriminalFacilities, useCriminalFacilities} from "../criminalFacilityProvider.js"
 
 
 //function that will list all criminals, its called when we click on criminals in the navbar(eventListener for criminals on the navbar in main.js)
 export const CriminalList = (convictionFilter, arrestingFilter) => {
     //before you can print all the criminals you have to get all the data to do it,have to call the function that has the fetch call to gather all the data
-    getCriminals().then(() => {
+    getCriminals()
+    .then(getFacilities)
+    .then(getCriminalFacilities)
+    .then(() => {
+        const facilities = useFacilities()
+        const crimFac = useCriminalFacilities()
         let criminals = useCriminals();
-        let criminalListContainer = document.querySelector(".criminal-list")
-        let criminalHTMLString = ""
+        //let criminalListContainer = document.querySelector(".criminal-list")
+        //let criminalHTMLString = ""
+
         // If we get input from the convictions filter, filter our criminals so that we only see ones with that conviction
         if(convictionFilter){
             criminals = criminals.filter((currentCriminal) => {
@@ -20,14 +28,11 @@ export const CriminalList = (convictionFilter, arrestingFilter) => {
             })
         }
 
-
         
-  
-
-        for(let currentCriminalInLoop of criminals) {
-            criminalHTMLString += criminalCard(currentCriminalInLoop);
-        }
-        criminalListContainer.innerHTML = criminalHTMLString
+        // for(let currentCriminalInLoop of criminals) {
+        //     criminalHTMLString += criminalCard(currentCriminalInLoop);
+        // }
+        //criminalListContainer.innerHTML = criminalHTMLString
 
         
         let facilityContainer = document.querySelector(".facility-list");
@@ -36,10 +41,39 @@ export const CriminalList = (convictionFilter, arrestingFilter) => {
         officerContainer.innerHTML = ``;
         let noteContainer = document.querySelector(".note-list")
         noteContainer.innerHTML = ``;
-
+        let witnessContainer = document.querySelector(".witness-list")
+        witnessContainer.innerHTML = ""
+        
+        
+        render (criminals, facilities, crimFac)
         
     });
 };
+
+    let contentTarget = document.querySelector(".criminal-list")
+
+    const render = (criminalsToRender, allFacilities, allRelationships) => {
+        //First - iterate all criminals
+        //console.log(criminalsToRender)
+        contentTarget.innerHTML = criminalsToRender.map(
+            (criminalObject) => {
+            //debugger
+                //Next - filter all relationships to get only ones for THIS criminal
+                const facilityRelationshipForThisCriminal = allRelationships.filter(cf => cf.criminalId === criminalObject.id)
+                //Next - convert the relationship to facilities with map()
+                const facilities = facilityRelationshipForThisCriminal.map(cf => {
+                    const matchingFacilityObject = allFacilities.find(facility => facility.id === cf.facilityId)
+                    return matchingFacilityObject
+                })
+
+                //Must pass the matching facilities to the criminal component that prints the html
+                return criminalCard(criminalObject, facilities)
+            }
+        ).join("")
+    }
+
+
+
 
 
   // //tells me what container in index.html i'm going to send this data to

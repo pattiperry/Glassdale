@@ -39,9 +39,9 @@ document.querySelector("#witness-nav-link").addEventListener("click",  () => {
 })
 
 //when the NOTES in the navbar are clicked,then the list of notes will print
-// document.querySelector("#notes-nav-link").addEventListener("click",() => {
-//   NoteList();
-// });
+document.querySelector("#notes-nav-link").addEventListener("click",() => {
+NoteList();
+});
 
 
 
