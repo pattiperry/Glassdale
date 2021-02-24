@@ -25,10 +25,16 @@
       "id": 4
     },
     {
-      "text": "Gabe made us all change our name to Eyad.",
+      "text": "Gabe made us all change our names to Eyad.",
       "date": "2021-02-12",
       "criminalId": "14",
       "id": 5
+    },
+    {
+      "text": "i forgot how this works",
+      "date": "2021-02-24",
+      "criminalId": "17",
+      "id": 6
     }
   ]
 }

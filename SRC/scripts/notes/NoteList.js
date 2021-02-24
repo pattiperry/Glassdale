@@ -38,6 +38,8 @@ export const NoteList = () => {
         facilityContainer.innerHTML = ``;
         let officerContainer = document.querySelector(".officer-list");
         officerContainer.innerHTML = ``;
+        let witnessContainer = document.querySelector(".witness-list")
+        witnessContainer.innerHTML = ""
         
     })
     

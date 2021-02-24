@@ -21,6 +21,8 @@ export const FacilityList = () => {
         officerContainer.innerHTML = ``;
         let noteContainer = document.querySelector(".note-list")
         noteContainer.innerHTML = ``;
+        let witnessContainer = document.querySelector(".witness-list")
+        witnessContainer.innerHTML = ""
     })
     
 }
